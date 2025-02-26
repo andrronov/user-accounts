@@ -1,8 +1,7 @@
 <script setup lang="ts">
-
+import { Accounts } from "@/widgets/accounts";
+import { Input } from "@/shared/ui";
 </script>
 <template>
-    <div>
-        <h1>Home Page</h1>
-    </div>
+  <Accounts />
 </template>

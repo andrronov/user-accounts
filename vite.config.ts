@@ -1,4 +1,3 @@
-import tailwindcss from '@tailwindcss/vite';
 import vue from "@vitejs/plugin-vue";
 import { defineConfig } from "vite";
 import { fileURLToPath, URL } from "node:url";
@@ -8,11 +7,11 @@ const resolve = (path: string) => {
 };
 
 export default defineConfig({
-  plugins: [vue(), tailwindcss()],
+  plugins: [vue()],
   resolve: {
     alias: {
       "@": resolve("./src"),
     },
   },
-  base: "./"
+  base: "./",
 });

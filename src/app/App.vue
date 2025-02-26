@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { useRoute } from "vue-router";
 import { useSeoMeta } from "@unhead/vue";
+import { useRoute } from "vue-router";
 import { layouts } from "./layouts";
 
 const route = useRoute();
