@@ -73,8 +73,8 @@ const showTooltip = ref(false);
 
 <template>
   <div class="relative w-full flex flex-col gap-1.5">
-    <div class="flex justify-between items-center">
-      <div class="w-1/2 flex justify-between items-center gap-1.5">
+    <div class="flex-col flex sm:flex-row justify-between items-center">
+      <div class="w-full sm:w-1/2 flex justify-between items-center gap-1.5">
         <Input
           class="w-full"
           v-model="tagData"
@@ -95,7 +95,7 @@ const showTooltip = ref(false);
           </div>
         </transition>
       </div>
-      <div class="w-1/2 flex justify-between items-center gap-1.5">
+      <div class="w-full sm:w-1/2 flex justify-between items-center gap-1.5">
         <Input
           v-model="accountData.login"
           class="w-full"
