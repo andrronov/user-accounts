@@ -2,35 +2,39 @@ import { useStorage } from "@vueuse/core";
 import { defineStore } from "pinia";
 import type { Account } from "@/shared/types";
 
-export const useAccountsStore = defineStore("accounts", {
-  state: () => ({
-    accounts: useStorage<Array<Account>>("accounts", []),
-    count: useStorage("count", 0),
-  }),
+export const useAccountsStore = defineStore("accounts", () => {
+  const accounts = useStorage<Account[]>("accounts", []);
+  const count = useStorage("count", 0);
 
-  actions: {
-    createAccount() {
-      const defaultAccount: Account = {
-        id: this.count++,
-        tag: [],
-        type: "LDAP",
-        login: "login",
-        password: "password",
-      };
+  const createAccount = () => {
+    const defaultAccount: Account = {
+      id: count.value++,
+      tag: [],
+      type: "LDAP",
+      login: "login",
+      password: "password",
+    };
 
-      this.accounts.push(defaultAccount);
-    },
-    deleteAccount(id: number) {
-      const foundAccount = this.accounts.find((account) => account.id === id);
-      if (foundAccount) {
-        this.accounts = this.accounts.filter((account) => account.id !== id);
-      }
-    },
-    updateAccount(account: Account) {
-      const foundAccount = this.accounts.find((acc) => acc.id === account.id);
-      if (foundAccount) {
-        Object.assign(foundAccount, account);
-      }
-    },
-  },
+    accounts.value.push(defaultAccount);
+  };
+
+  const deleteAccount = (id: number) => {
+    const foundAccount = accounts.value.find((account) => account.id === id);
+    if (foundAccount) {
+      accounts.value = accounts.value.filter((account) => account.id !== id);
+    }
+  };
+  const updateAccount = (account: Account) => {
+    const foundAccount = accounts.value.find((acc) => acc.id === account.id);
+    if (foundAccount) {
+      Object.assign(foundAccount, account);
+    }
+  };
+
+  return {
+    accounts,
+    createAccount,
+    deleteAccount,
+    updateAccount,
+  };
 });

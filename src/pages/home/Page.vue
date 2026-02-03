@@ -1,7 +1,12 @@
 <script setup lang="ts">
+import { useHead } from "@unhead/vue";
 import { Accounts } from "@/widgets/accounts";
-import { Input } from "@/shared/ui";
+
+useHead({
+  title: "Учет пользователей",
+});
 </script>
+
 <template>
   <Accounts />
 </template>
