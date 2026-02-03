@@ -72,8 +72,10 @@ const showTooltip = ref(false);
 </script>
 
 <template>
-  <div class="relative w-full flex flex-col gap-1.5">
-    <div class="flex-col flex sm:flex-row justify-between items-center">
+  <div class="relative w-full flex flex-col gap-3 sm:gap-1.5">
+    <div
+      class="flex-col gap-5 sm:gap-2 flex sm:flex-row justify-between items-center"
+    >
       <div class="w-full sm:w-1/2 flex justify-between items-center gap-1.5">
         <Input
           class="w-full"
@@ -114,8 +116,13 @@ const showTooltip = ref(false);
         />
       </div>
     </div>
-    <Button size="xs" variant="outline" color="secondary" @click="deleteAccount"
-      >Удалить</Button
+    <Button
+      size="xs"
+      variant="outline"
+      color="secondary"
+      @click="deleteAccount"
     >
+      Удалить
+    </Button>
   </div>
 </template>
